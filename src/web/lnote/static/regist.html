@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">  
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>regist&&login</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(127, 187, 255);
+             background: url("images/bg2.jpg") no-repeat;
+            height:100%;
+            width:100%;
+            overflow: hidden !important;
+            background-size:100% !important; 
+            margin:0;
+        }
+
+        .panel {
+            width: 210x !important;
+            margin: 20px !important;
+        }
+
+        #edit-icon {
+            opacity: 0.5 !important;
+        }
+
+        #edit-icon:hover {
+
+            opacity: 2 !important;
+        }
+
+        .glyphicon-trash {
+            opacity: 0.6 !important;
+        }
+
+        .glyphicon-trash:hover {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container container-fiuled" >
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <br>
+
+
+                <h4 id="nickname" style="color:white ">  &nbsp;</h4>
+            </div>
+        </div>
+        
+
+
+        <div class="row clearfix">
+            <div id="parentDiv" class="" >
+                <div class="panel " style="margin: 0 auto !important;width:375px">
+                  
+
+                    <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >登录</div>
+                    <div style="margin:0 auto">
+                        <form role="form" style="margin:30px !important">
+                            <div class="form-group" style=>
+                                 <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱地址</label>
+                                 <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
+                                 <span class="help-block" style="color: seagreen"></span>
+                            </div>
+                            <div class="form-group">
+                                 <label for="exampleInputPassword1" style="opacity: 0.5 !important;">密码</label>
+                                 <input name="password" required type="password" class="form-control" id="exampleInputPassword1" />
+                                 <span class="help-block" style="color: seagreen"></span>
+                            </div>
+
+                             <button type="submit" class="btn btn-default" style="color:rgb(127, 187, 255)">登录</button>
+                             <div style="height:60px"></div>
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        
+        <div class="row clearfix">
+            <div class="col-xs-12">
+                    <!-- 注册弹窗 -->
+                    <div class="modal fade" id="modal-container-523565" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content" style="height:580px !important">
+                                    <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                                    </div>
+                                    <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
+                                    
+                                    <div style="margin:0 27px 0 27px;">
+                                            <form role="form" style="margin:0 60px 0 60px !important">
+                                                    <div class="form-group" style=>
+                                                         <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱 </label>
+                                                         <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
+                                                         <span class="help-block" style="color: seagreen">信息正确</span>
+                                                         
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1" style="opacity: 0.5 !important;">密码</label>
+                                                        <input name="password" required type="password" class="form-control" id="exampleInputPassword1" />
+                                                        <span class="help-block" style="color: seagreen">信息正确</span>
+                                                            
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputCode1" style="opacity: 0.5 !important;padding-right: 300px !important">验证码</label>
+                                                        <input name="code" required type="code" class="form-control" id="exampleInputCode1" />
+                                                        <span class="help-block" style="color: seagreen">信息正确</span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="col-sm-offset-2 col-sm-9">
+        
+                                                            </div>
+                                                        </div>
+                                                     <button type="submit" class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> <a href="" style="float:right;margin-top:8px">发送邮箱验证码</a>
+                                                     <div style="height:70px"></div>
+                                                </form>
+                                                
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                            
+                    </div>
+                      <!-- 注册弹窗结束   -->
+                <div style="text-align:center" class="navbar-fixed-bottom">
+
+                        <a id="modal-523565" href="#modal-container-523565" role="button" class="btn" data-toggle="modal"><img id="edit-icon" class="img-circle"width=" 100px" height="100px" src="images/加号.png" /></a>
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
