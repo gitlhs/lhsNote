@@ -11,7 +11,7 @@
     <style>
         body {
             background-color: rgb(127, 187, 255);
-             background: url("images/bg2.jpg") no-repeat;
+             background: url("../static/images/bg2.jpg") no-repeat;
             height:100%;
             width:100%;
             overflow: hidden !important;
@@ -64,7 +64,8 @@
 
                     <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >登录</div>
                     <div style="margin:0 auto">
-                        <form role="form" style="margin:30px !important">
+                        <!-- 登录表单 -->
+                        <form role="form" style="margin:30px !important" id="loginForm">
                             <div class="form-group" style=>
                                  <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱地址</label>
                                  <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
@@ -79,7 +80,7 @@
                              <button type="submit" class="btn btn-default" style="color:rgb(127, 187, 255)">登录</button>
                              <div style="height:60px"></div>
                         </form>
-
+                        <!-- 登录表单 -->
                     </div>
 
 
@@ -102,24 +103,25 @@
                                     <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
                                     
                                     <div style="margin:0 27px 0 27px;">
-                                            <form role="form" style="margin:0 60px 0 60px !important">
+                                            <!-- 注册表单 -->
+                                            <form role="form" style="margin:0 60px 0 60px !important" id="registForm">
                                                     <div class="form-group" style=>
                                                          <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱 </label>
                                                          <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
-                                                         <span class="help-block" style="color: seagreen">信息正确</span>
+                                                         <span class="help-block" style="color: seagreen"></span>
                                                          
                                                     </div>
                                                     
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1" style="opacity: 0.5 !important;">密码</label>
                                                         <input name="password" required type="password" class="form-control" id="exampleInputPassword1" />
-                                                        <span class="help-block" style="color: seagreen">信息正确</span>
+                                                        <span class="help-block" style="color: seagreen"></span>
                                                             
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="exampleInputCode1" style="opacity: 0.5 !important;padding-right: 300px !important">验证码</label>
+                                                        <label for="exampleInputCode1" style="opacity: 0.5 !important;padding-right: 300px !important">邮箱验证码</label>
                                                         <input name="code" required type="code" class="form-control" id="exampleInputCode1" />
-                                                        <span class="help-block" style="color: seagreen">信息正确</span>
+                                                        <span class="help-block" style="color: seagreen"></span>
                                                     </div>
                                                     <div class="form-group">
                                                             <div class="col-sm-offset-2 col-sm-9">
@@ -129,6 +131,7 @@
                                                      <button type="submit" class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> <a href="" style="float:right;margin-top:8px">发送邮箱验证码</a>
                                                      <div style="height:70px"></div>
                                                 </form>
+                                                <!-- 注册表单 -->
                                                 
                                     </div>
 
@@ -140,7 +143,7 @@
                       <!-- 注册弹窗结束   -->
                 <div style="text-align:center" class="navbar-fixed-bottom">
 
-                        <a id="modal-523565" href="#modal-container-523565" role="button" class="btn" data-toggle="modal"><img id="edit-icon" class="img-circle"width=" 100px" height="100px" src="images/加号.png" /></a>
+                        <a id="modal-523565" href="#modal-container-523565" role="button" class="btn" data-toggle="modal"><img id="edit-icon" class="img-circle"width=" 100px" height="100px" src="../static/images/加号.png" /></a>
 
                 </div>
                 </div>
@@ -152,6 +155,97 @@
         <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    <!-- 重要两条 -->
+    <link rel="stylesheet" href="../../../script/bootstrapValidator/css/bootstrapValidator.css"/>
+    <script type="text/javascript" src="../../../script/bootstrapValidator/js/bootstrapValidator.js"></script>
+    <!-- 重要两条 -->
+        <script type="text/javascript">
+            $(document).ready(function() {          
+                $('#loginForm,#registForm').bootstrapValidator({
+            //        live: 'disabled',
+                    message: '该值无效',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        email: {
+                            validators: {
+                                emailAddress: {
+                                    message: '不是一个合法的邮箱账号'
+                                },
+                                notEmpty: {
+                                    message: 'email不能为空'
+                                },
+                            }
+                        },
+                        code: {
+                            validators: {
+                                notEmpty: {
+                                    message: '验证码不能为空'
+                                },
+                            }
+                        },
+
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: '密码不能为空'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: '密码长度必须大于6个字符，小于30个字符'
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                                    message: '密码只能由字母、数字、点和下划线组成'
+                                },
+                                notEmpty: {
+                                    message: '密码不能为空'
+                                },
+                                identical: {
+                                    field: 'confirmPassword',
+                                    message: '密码两次输入不一致'
+                                },
+                                different: {
+                                    field: 'username',
+                                    message: '密码不能和用户名一致'
+                                }
+                            }
+                        },
+                        confirmPassword: {
+                            validators: {
+                                notEmpty: {
+                                    message: '确认密码是必需的，不能为空'
+                                },
+                                identical: {
+                                    field: 'password',
+                                    message: '两次密码输入不一致'
+                                },
+                                different: {
+                                    field: 'username',
+                                    message: '密码不能和用户名一致'
+                                }
+                            }
+                        }
+                    }
+                });
+            
+                // 手动验证表单
+                $('#validateBtn').click(function() {
+                    $('#defaultForm').bootstrapValidator('validate');
+                });
+            
+                $('#resetBtn').click(function() {
+                    $('#defaultForm').data('bootstrapValidator').resetForm(true);
+                });
+            });
+            </script>
 
 </body>
 

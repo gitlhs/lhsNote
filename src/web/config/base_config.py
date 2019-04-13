@@ -17,7 +17,7 @@ DEBUG = True
 '''
 网站域名
 '''
-SERVER_NAME = 'lnote.site:8081'
+SERVER_NAME = '127.0.0.1:5000'
 
 
 '''

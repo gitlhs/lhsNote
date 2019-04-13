@@ -10,7 +10,7 @@ app = Flask(
 	template_folder = 'templates',   # 模板所在文件夹的名字
 	static_folder   = 'static',      # 静态文件所在文件的名字
 	instance_relative_config = True, # 允许设置配置文件目录
-	instance_path = '/Users/cloudlin/lhsNote/src/web/config'  # 配置文件目录
+	instance_path = '/Users/linxiaoming/github_mine/lhsNote/src/web/config'  # 配置文件目录
 )
 
 '''
