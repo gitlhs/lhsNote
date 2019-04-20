@@ -62,10 +62,49 @@
                 <div class="panel " style="margin: 0 auto !important;width:375px">
                   
 
-                    <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
+                    <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >登录</div>
                     <div style="margin:0 auto">
-                                                                    <!-- 注册表单 -->
-                                            <form role="form" style="margin:0 60px 0 60px !important" id="registForm">
+                        <!-- 登录表单 -->
+                        <form role="form" style="margin:30px !important" id="loginForm">
+                            <div class="form-group" style=>
+                                 <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱地址</label>
+                                 <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
+                                 <span class="help-block" style="color: seagreen"></span>
+                            </div>
+                            <div class="form-group">
+                                 <label for="exampleInputPassword1" style="opacity: 0.5 !important;">密码</label>
+                                 <input name="password" required type="password" class="form-control" id="exampleInputPassword1" />
+                                 <span class="help-block" style="color: seagreen"></span>
+                            </div>
+
+                             <button id="button_login" class="btn btn-default" style="color:rgb(127, 187, 255)">登录</button>
+                             <div style="height:60px"></div>
+                        </form>
+                        <!-- 登录表单 -->
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        
+        <div class="row clearfix">
+            <div class="col-xs-12">
+                    <!-- 注册弹窗 -->
+                    <div class="modal fade" id="modal-container-523565" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content" style="height:580px !important">
+                                    <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                                    </div>
+                                    <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
+                                    
+                                    <div style="margin:0 27px 0 27px;">
+                                            <!-- 注册表单 -->
+                                            <!-- <form role="form" style="margin:0 60px 0 60px !important" id="registForm">
                                                     <div class="form-group" style=>
                                                          <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱 </label>
                                                          <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
@@ -80,7 +119,7 @@
                                                             
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="exampleInputCode1" style="opacity: 0.5 !important; !important">邮箱验证码</label>
+                                                        <label for="exampleInputCode1" style="opacity: 0.5 !important;padding-right: 300px !important">邮箱验证码</label>
                                                         <input name="code" required type="code" class="form-control" id="exampleInputCode1" />
                                                         <span class="help-block" style="color: seagreen"></span>
                                                     </div>
@@ -89,33 +128,10 @@
         
                                                             </div>
                                                         </div>
-                                                     <button class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> <a href="" style="float:right;margin-top:8px">发送邮箱验证码</a>
+                                                     <button type="submit" class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> <a href="" style="float:right;margin-top:8px">发送邮箱验证码</a>
                                                      <div style="height:70px"></div>
-                                                </form>
+                                                </form> -->
                                                 <!-- 注册表单 -->
-                    </div>
-
-
-                </div>
-
-
-            </div>
-        </div>
-        
-        <div class="row clearfix">
-            <div class="col-xs-12">
-                    <!-- 注册弹窗 -->
-<!--                     <div class="modal fade" id="modal-container-523565" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content" style="height:580px !important">
-                                    <div class="modal-header">
-                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-
-                                    </div>
-                                    <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
-                                    
-                                    <div style="margin:0 27px 0 27px;">
-
                                                 
                                     </div>
 
@@ -123,7 +139,7 @@
                                 
                             </div>
                             
-                    </div> -->
+                    </div>
                       <!-- 注册弹窗结束   -->
                 <div style="text-align:center" class="navbar-fixed-bottom">
 
@@ -139,8 +155,6 @@
         <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 
     <!-- 重要两条 -->
     <link rel="stylesheet" href="/s/css/bootstrapValidator.css"/>
@@ -229,6 +243,22 @@
                     $('#defaultForm').data('bootstrapValidator').resetForm(true);
                 });
             });
+                $('#button_login').on('click',function(e){
+                    var url='/login_cgi';
+                    var email = $('#exampleInputEmail1');
+                    var password = $('#exampleInputPassword1');
+                    var data = {
+                        'email':email.val(),
+                        'password':password.val()
+                    };
+                    $.post(url,data,function(json){
+                        if(json.ret == 0){
+                            alert("登录成功");
+                        }else{
+                            alert("登录失败");
+                        }
+                    })
+                });
             </script>
 
 </body>
