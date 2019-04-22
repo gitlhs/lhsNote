@@ -1,0 +1,30 @@
+        body {
+            background-color: rgb(127, 187, 255);
+        }
+
+        button{
+        outline:none!important;
+
+        }
+
+        .panel {
+            width: 210x !important;
+            margin: 20px !important;
+        }
+
+        #edit-icon {
+            opacity: 0.5 !important;
+        }
+
+        #edit-icon:hover {
+
+            opacity: 2 !important;
+        }
+
+        .glyphicon-trash {
+            opacity: 0.6 !important;
+        }
+
+        .glyphicon-trash:hover {
+            opacity: 1 !important;
+        }

@@ -8,39 +8,8 @@
     <title>login</title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: rgb(127, 187, 255);
-             background: url("/s/images/bg2.jpg") no-repeat;
-            height:100%;
-            width:100%;
-            overflow: hidden !important;
-            background-size:100% !important; 
-            margin:0;
-        }
-
-        .panel {
-            width: 210x !important;
-            margin: 20px !important;
-        }
-
-        #edit-icon {
-            opacity: 0.5 !important;
-        }
-
-        #edit-icon:hover {
-
-            opacity: 2 !important;
-        }
-
-        .glyphicon-trash {
-            opacity: 0.8 !important;
-        }
-
-        .glyphicon-trash:hover {
-            opacity: 1 !important;
-        }
-    </style>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="/s/css/regist.css">
 </head>
 
 <body>
@@ -140,97 +109,11 @@
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
-    <!-- 重要两条 -->
-    <link rel="stylesheet" href="/s/css/bootstrapValidator.css"/>
-    <script type="text/javascript" src="/s/js/bootstrapValidator.js"></script>
-    <!-- 重要两条 -->
-        <script type="text/javascript">
-            $(document).ready(function() {          
-                $('#loginForm,#registForm').bootstrapValidator({
-            //        live: 'disabled',
-                    message: '该值无效',
-                    feedbackIcons: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    fields: {
-                        email: {
-                            validators: {
-                                emailAddress: {
-                                    message: '不是一个合法的邮箱账号'
-                                },
-                                notEmpty: {
-                                    message: 'email不能为空'
-                                },
-                            }
-                        },
-                        code: {
-                            validators: {
-                                notEmpty: {
-                                    message: '验证码不能为空'
-                                },
-                            }
-                        },
-
-                        password: {
-                            validators: {
-                                notEmpty: {
-                                    message: '密码不能为空'
-                                },
-                                stringLength: {
-                                    min: 6,
-                                    max: 30,
-                                    message: '密码长度必须大于6个字符，小于30个字符'
-                                },
-                                regexp: {
-                                    regexp: /^[a-zA-Z0-9_\.]+$/,
-                                    message: '密码只能由字母、数字、点和下划线组成'
-                                },
-                                notEmpty: {
-                                    message: '密码不能为空'
-                                },
-                                identical: {
-                                    field: 'confirmPassword',
-                                    message: '密码两次输入不一致'
-                                },
-                                different: {
-                                    field: 'username',
-                                    message: '密码不能和用户名一致'
-                                }
-                            }
-                        },
-                        confirmPassword: {
-                            validators: {
-                                notEmpty: {
-                                    message: '确认密码是必需的，不能为空'
-                                },
-                                identical: {
-                                    field: 'password',
-                                    message: '两次密码输入不一致'
-                                },
-                                different: {
-                                    field: 'username',
-                                    message: '密码不能和用户名一致'
-                                }
-                            }
-                        }
-                    }
-                });
-            
-                // 手动验证表单
-                $('#validateBtn').click(function() {
-                    $('#defaultForm').bootstrapValidator('validate');
-                });
-            
-                $('#resetBtn').click(function() {
-                    $('#defaultForm').data('bootstrapValidator').resetForm(true);
-                });
-            });
-            </script>
-
+        <!-- 重要两条 -->
+        <link rel="stylesheet" href="/s/css/bootstrapValidator.css"/>
+        <script type="text/javascript" src="/s/js/bootstrapValidator.js"></script>
+        <!-- 重要两条 -->
+        <script type="text/javascript" src="/s/js/regist.js"></script>
 </body>
 
 </html>
