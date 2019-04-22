@@ -34,7 +34,7 @@
         }
 
         .glyphicon-trash {
-            opacity: 0.6 !important;
+            opacity: 0.8 !important;
         }
 
         .glyphicon-trash:hover {
@@ -77,7 +77,7 @@
                                  <span class="help-block" style="color: seagreen"></span>
                             </div>
 
-                             <button id="button_login" class="btn btn-default" style="color:rgb(127, 187, 255)">登录</button>
+                             <button id="button_login" class="btn btn-default" style="color:rgb(127, 187, 255)">登录</button><span id="login_alert" style="color:red;float:right;margin-right:6px;margin-top:6px;"></span>
                              <div style="height:60px"></div>
                         </form>
                         <!-- 登录表单 -->
@@ -93,7 +93,7 @@
         <div class="row clearfix">
             <div class="col-xs-12">
                     <!-- 注册弹窗 -->
-                    <div class="modal fade" id="modal-container-523565" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--                     <div class="modal fade" id="modal-container-523565" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content" style="height:580px !important">
                                     <div class="modal-header">
@@ -103,8 +103,8 @@
                                     <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
                                     
                                     <div style="margin:0 27px 0 27px;">
-                                            <!-- 注册表单 -->
-                                            <!-- <form role="form" style="margin:0 60px 0 60px !important" id="registForm">
+                                            
+                                            <form role="form" style="margin:0 60px 0 60px !important" id="registForm">
                                                     <div class="form-group" style=>
                                                          <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱 </label>
                                                          <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
@@ -130,8 +130,8 @@
                                                         </div>
                                                      <button type="submit" class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> <a href="" style="float:right;margin-top:8px">发送邮箱验证码</a>
                                                      <div style="height:70px"></div>
-                                                </form> -->
-                                                <!-- 注册表单 -->
+                                                </form>
+                                                
                                                 
                                     </div>
 
@@ -139,11 +139,11 @@
                                 
                             </div>
                             
-                    </div>
+                    </div> -->
                       <!-- 注册弹窗结束   -->
                 <div style="text-align:center" class="navbar-fixed-bottom">
 
-                        <a id="modal-523565" href="#modal-container-523565" role="button" class="btn" data-toggle="modal"><img id="edit-icon" class="img-circle"width=" 100px" height="100px" src="/s/images/加号.png" /></a>
+                        <a id="modal-523565" href="/regist" role="button" class="btn" data-toggle="modal"><img id="edit-icon" class="img-circle"width=" 80px" height="80px" src="/s/images/Power_Switch_User.png" /></a>
 
                 </div>
                 </div>
@@ -252,12 +252,15 @@
                         'password':password.val()
                     };
                     $.post(url,data,function(json){
+                        
+                        
                         if(json.ret == 0){
-                            alert("登录成功");
+                            window.location.href="/";
                         }else{
-                            alert("登录失败");
+                            $('#login_alert').html("登录失败，请检查邮箱密码")
                         }
-                    })
+                    },'json')
+                    // 后面加‘json‘指定json格式
                 });
             </script>
 

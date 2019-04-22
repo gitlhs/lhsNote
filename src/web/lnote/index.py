@@ -2,23 +2,49 @@
 # -*- coding: utf-8 -*-
 
 from . import lnote
-from flask import render_template,request
+from flask import render_template,request,redirect,url_for,session
 from models.user import User
 from libraries import utils
 
+'''
+首页
+'''
 @lnote.route('/')
 def index():
-	user_obj = User()
-	return render_template('index.html')
+	# 未登录，则跳转到登录页面
+	if not utils.has_login():
+		return redirect(url_for('.login'))
+	# 已登录状态，则传递用户数据并展示首页
+	data = {
+		'userid'  : session['userid'],
+		'nickname': session['nickname']
+	}
+	return render_template('index.html',data=data)
+
+'''
+ 退出登录接口
+'''
+@lnote.route('/logout_cgi',methods = ['POST','GET'])
+def logout_cgi():
+	session['userid'] = ''
+	return utils.cgi_json(0, '退出登录成功')
+	
+
+
+'''
+注册页面
+'''
 @lnote.route('/regist')
 def regist():
 	return render_template('regist.html')
+
 
 
 '''
 登录页面
 '''
 @lnote.route('/login')
+
 def login():
 	return render_template('login.html')
 
@@ -51,6 +77,14 @@ def login_cgi():
 
 	# 返回登录成功
 	return utils.cgi_json(0, '登录成功')
+
+'''
+判断用户是否登录
+'''
+def has_login():
+	if 'userid' in session and session['userid']:
+		return true
+	return False
 
 
 

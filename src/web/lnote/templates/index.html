@@ -44,8 +44,19 @@
             <div class="col-md-12 column">
                 <br>
 
-                <img class="img-responsive img-circle" width="50px" height="50px" src="/s/images/avator.jpeg"
-                    style="float:right" />
+                <div class="dropdown"" style="margin:0;padding:0;float:right">
+                    <img class="img-responsive img-circle  dropdown-toggle"width="50px" height="50px" src="/s/images/avator.jpeg" data-toggle="dropdown"/>
+                    <ul  class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1" style="min-width:10%;" 
+                    onclick='$.post("/logout_cgi",function(json){                      
+                            if(json.ret == 0){
+                                window.location.href="/login";
+                            }else{
+                                alert("退出失败，请重试！")
+                            }
+                        },"json")'>
+                      <li id="logout" role="presentation"><a role="menuitem" tabindex="-1" href="#" >退出 &nbsp<span class="glyphicon glyphicon-off" style="margin-right:-2px;"></span></a></li>
+                    </ul>
+                </div>
                 <h4 id="nickname" style="color:white">HS鬼</h4>
             </div>
         </div>
@@ -144,6 +155,21 @@
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
+            $(document).ready(function(){
+                $("[data-toggle='popover']").popover();
+                    function logout(){
+
+                        alert("test")
+                        var url='/logout_cgi';
+                        $.post(url,function(json){                      
+                            if(json.ret == 0){
+                                window.location.href="/login";
+                            }else{
+                                alert("退出失败，请重试！")
+                            }
+                        },'json')
+                    }
+            }
 
         </script>
 </body>
