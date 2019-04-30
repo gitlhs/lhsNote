@@ -79,4 +79,60 @@
                 $('#resetBtn').click(function() {
                     $('#defaultForm').data('bootstrapValidator').resetForm(true);
                 });
+                $('#code').on('click',function(e){
+                    var btn = $("#code");
+                    var countdown = $("#countdown");
+                    countdown.css({'color':'grey','text-decoration':'none'});//显示倒计时的元素
+                    function timer(time){
+                        btn.hide();//隐藏发送验证码的按钮
+                        var hander = setInterval(function() {// setInterval(),这个方法相当于一个循环，在多少秒之后执行一次，知道clearInterval来清除定时器
+                            if (time <= 0) {
+                                clearInterval(hander); //清除倒计时
+                                countdown.text('');
+                                btn.show();
+                                return false;
+                            }else {
+                                countdown.text("" + (time--)+"s后可重发")；
+                            }
+                        }, 900);
+                    }
+                    timer(5); 
+
+                });
+                //注册按钮js
+                $('#button_regist').on('click',function(e){
+                    var url='/regist_cgi';
+                    var email = $('#exampleInputEmail1');
+                    var password = $('#exampleInputPassword1');
+                    var nickname = $('exampleInputNickname1');
+                    var code = $('exampleInputCode1');
+                    var data = {
+                        'email':email.val(),
+                        'password':password.val(),
+                        'nickname':nickname.val(),
+                        'code':code.val()
+                    };
+                    $.post(url,data,function(json){
+                        
+                        
+                        if(json.ret == 0){
+                            window.location.href="/";
+                        }else{
+                            $('#login_alert').html("注册失败，请检查xxx!")
+                        }
+                    },'json')
+                })
+
+
+
             });
+
+
+
+
+
+
+
+
+
+

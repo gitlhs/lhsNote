@@ -38,7 +38,21 @@ def logout_cgi():
 def regist():
 	return render_template('regist.html')
 
-
+'''
+注册接口
+'''
+@lnote.route('/regist_cgi')
+def regist_cgi():
+	# 获取并检查页面传来的参数
+	email = request.values.get('email')
+	password = request.values.get('password')
+	nickname = request.values.get('nickname')
+	code = request.values.get('code')
+	if not email:
+		return utils.cgi_json(1, '邮箱不能为空')
+	if not password:
+		return utils.cgi_json(2, '密码不能为空')
+	# 判断邮箱是否已被注册，验证：密码昵称验证码
 
 '''
 登录页面

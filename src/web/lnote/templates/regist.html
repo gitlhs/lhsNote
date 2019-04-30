@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">  
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>login</title>
+    <title>注册</title>
+    <link rel="icon" href="/s/images/regist-icon.png" type="image/x-icon" />
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -34,31 +35,36 @@
                     <div style="text-align:center; font-size:80px; color:deepskyblue;font-family:  Wawati SC !important" >注册</div>
                     <div style="margin:0 auto">
                                                                     <!-- 注册表单 -->
-                                            <form role="form" style="margin:0 60px 0 60px !important" id="registForm">
-                                                    <div class="form-group" style=>
+                                            <form role="form" style="margin:0 50px 0 50px !important" id="registForm">
+                                                    <div class="form-group">
                                                          <label for="exampleInputEmail1" style="opacity: 0.5 !important;">邮箱 </label>
-                                                         <input name="email" required type="email" class="form-control input-group-sm" id="exampleInputEmail1" />
-                                                         <span class="help-block" style="color: seagreen"></span>
+                                                         <input name="email" required type="email" class="form-control " id="exampleInputEmail1" />
+
                                                          
                                                     </div>
                                                     
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1" style="opacity: 0.5 !important;">密码</label>
                                                         <input name="password" required type="password" class="form-control" id="exampleInputPassword1" />
-                                                        <span class="help-block" style="color: seagreen"></span>
-                                                            
                                                     </div>
+
+                                                    <div class="form-group">
+                                                         <label for="exampleInputNickname1" style="opacity: 0.5 !important;">昵称 </label>
+                                                         <input name="nickname" required type="nickname" class="form-control " id="exampleInputNickname1" />
+
+                                                         
+                                                    </div>
+                                                            
+                                                    
                                                     <div class="form-group">
                                                         <label for="exampleInputCode1" style="opacity: 0.5 !important; !important">邮箱验证码</label>
                                                         <input name="code" required type="code" class="form-control" id="exampleInputCode1" />
-                                                        <span class="help-block" style="color: seagreen"></span>
+
                                                     </div>
-                                                    <div class="form-group">
-                                                            <div class="col-sm-offset-2 col-sm-9">
-        
-                                                            </div>
-                                                        </div>
-                                                     <button class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> <a href="" style="float:right;margin-top:8px">发送邮箱验证码</a>
+                                                
+                                                     <button id="button_regist" class="btn btn-default" style="color:rgb(127, 187, 255)">注册</button> 
+                                                     <a id="code" href="#" style="float:right;margin-top:8px">发送邮箱验证码</a>
+                                                     <a id='countdown' style="float:right;margin-top:8px"></a>
                                                      <div style="height:70px"></div>
                                                 </form>
                                                 <!-- 注册表单 -->
