@@ -79,12 +79,14 @@
                 $('#resetBtn').click(function() {
                     $('#defaultForm').data('bootstrapValidator').resetForm(true);
                 });
+                //发送验证码以及倒计时
                 $('#code').on('click',function(e){
                     var btn = $("#code");
                     var countdown = $("#countdown");
                     countdown.css({'color':'grey','text-decoration':'none'});//显示倒计时的元素
                     function timer(time){
                         btn.hide();//隐藏发送验证码的按钮
+                        countdown.text("" + (time--)+"s后可重发")
                         var hander = setInterval(function() {// setInterval(),这个方法相当于一个循环，在多少秒之后执行一次，知道clearInterval来清除定时器
                             if (time <= 0) {
                                 clearInterval(hander); //清除倒计时
@@ -92,9 +94,9 @@
                                 btn.show();
                                 return false;
                             }else {
-                                countdown.text("" + (time--)+"s后可重发")；
+                                countdown.text("" + (time--)+"s后可重发")
                             }
-                        }, 900);
+                        }, 1000);
                     }
                     timer(5); 
 
