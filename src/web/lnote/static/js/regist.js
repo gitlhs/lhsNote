@@ -33,8 +33,8 @@
                                 },
                                 stringLength: {
                                     min: 6,
-                                    max: 30,
-                                    message: '密码长度必须大于6个字符，小于30个字符'
+                                    max: 16,
+                                    message: '密码长度必须大于6个字符，小于16个字符'
                                 },
                                 regexp: {
                                     regexp: /^[a-zA-Z0-9_\.]+$/,
@@ -50,6 +50,21 @@
                                 different: {
                                     field: 'username',
                                     message: '密码不能和用户名一致'
+                                }
+                            }
+                        },
+                        nickname: {
+                            validators: {
+                                notEmpty: {
+                                    message: '昵称不能为空'
+                                },
+                                stringLength: {
+                                    min: 1,
+                                    max: 20,
+                                    message: '昵称长度必须大于1个字符，小于20个字符'
+                                },
+                                notEmpty: {
+                                    message: '昵称不能为空'
                                 }
                             }
                         },
@@ -87,7 +102,7 @@
                     function timer(time){
                         btn.hide();//隐藏发送验证码的按钮
                         countdown.text("" + (time--)+"s后可重发")
-                        var hander = setInterval(function() {// setInterval(),这个方法相当于一个循环，在多少秒之后执行一次，知道clearInterval来清除定时器
+                        var hander = setInterval(function() {// setInterval()这个方法相当于一个永久循环，在多少秒之后执行一次，需要clearInterval来清除定时器
                             if (time <= 0) {
                                 clearInterval(hander); //清除倒计时
                                 countdown.text('');
@@ -98,7 +113,7 @@
                             }
                         }, 1000);
                     }
-                    timer(5); 
+                    timer(30); 
 
                 });
                 //注册按钮js

@@ -33,8 +33,8 @@
                                 },
                                 stringLength: {
                                     min: 6,
-                                    max: 30,
-                                    message: '密码长度必须大于6个字符，小于30个字符'
+                                    max: 16,
+                                    message: '密码长度必须大于6个字符，小于16个字符'
                                 },
                                 regexp: {
                                     regexp: /^[a-zA-Z0-9_\.]+$/,
@@ -53,6 +53,7 @@
                                 }
                             }
                         },
+
                         confirmPassword: {
                             validators: {
                                 notEmpty: {
@@ -80,6 +81,7 @@
                     $('#defaultForm').data('bootstrapValidator').resetForm(true);
                 });
             });
+                //登录按钮js
                 $('#button_login').on('click',function(e){
                     var url='/login_cgi';
                     var email = $('#exampleInputEmail1');

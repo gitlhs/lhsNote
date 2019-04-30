@@ -41,7 +41,7 @@ def regist():
 '''
 注册接口
 '''
-@lnote.route('/regist_cgi')
+@lnote.route('/regist_cgi',methods=['POST'])
 def regist_cgi():
 	# 获取并检查页面传来的参数
 	email = request.values.get('email')

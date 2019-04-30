@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-
+# 包含在lnote文件里
 
 from flask import Blueprint
 

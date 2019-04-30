@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+# 包含在web文件夹里
 
 import sys
 from flask import Flask
