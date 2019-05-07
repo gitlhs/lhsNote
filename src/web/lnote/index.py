@@ -50,6 +50,11 @@ def regist_cgi():
 	code = request.values.get('code')
 	if not email:
 		return utils.cgi_json(1, '邮箱不能为空')
+
+		# return utils.cgi_json(11,'邮箱格式有问题')
+	# 邮箱是否已被注册
+	# if email
+
 	if not password:
 		return utils.cgi_json(2, '密码不能为空')
 	# 判断邮箱是否已被注册，验证：密码昵称验证码
