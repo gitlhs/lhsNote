@@ -74,7 +74,7 @@
                                 
                         </div>
                         <div class="modal-footer">
-                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-danger">删除</button>
+                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button id="del_note" type="button" class="btn btn-danger">删除</button>
                         </div>
                     </div>           
                 </div>              
@@ -87,7 +87,9 @@
                             <div class="modal-dialog">
                                 <div class="modal-content" style="height:320px !important">
                                     <div class="modal-header">
+                                         <!-- 关闭窗口即保存信息 -->
                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                         <!-- 关闭窗口即保存信息 -->
                                         <h4 class="modal-title" id="myModalLabel">
                                             <input placeholder="笔记标题" type="text" style="outline:none;width:100%;border:0"> 
                                         </h4>

@@ -10,4 +10,13 @@ $(document).ready(function(){
                         }
                     },'json')
                 });
+                $("#del_note").on('click',function(){
+                    var url = '/delete_cgi';
+                    // 执行删除操作
+                    $('#del_note').attr("data-dismiss","modal");
+                });
+                $('#modal-container-523565').on('hide.bs.modal', function () {
+                  // 执行一些动作...
+                  alert("保存成功！")
+                });
             });

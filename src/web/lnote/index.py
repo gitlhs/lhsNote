@@ -55,6 +55,13 @@ def regist_cgi():
 	# 判断邮箱是否已被注册，验证：密码昵称验证码
 
 '''
+验证码接口
+'''
+@lnote.route('/code_cgi',methods=['POST'])
+def code_cgi():
+	# 生成一条验证码表的记录
+	code_obj = Code()
+'''
 登录页面
 '''
 @lnote.route('/login')
