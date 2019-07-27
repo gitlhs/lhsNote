@@ -23,7 +23,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+
+
+/**
+ * 根据当前环境设置根域名
+ */
+if (ENVIRONMENT == 'development') {
+	$config['base_url'] = 'http://d-lnote.site';
+} else if (ENVIRONMENT == 'testing') {
+	$config['base_url'] = 'http://t-lnote.site';
+} else {
+	$config['base_url'] = 'http://lnote.site';
+}
 
 /*
 |--------------------------------------------------------------------------
